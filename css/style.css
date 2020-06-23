@@ -75,7 +75,7 @@ body {
 
 #content {
   padding-top: 1rem;
-  padding-bottom: 7rem;   /* padding + height of the footer */
+  padding-bottom: 10rem;   /* padding + height of the footer */
 }
 
 #game {
@@ -92,7 +92,7 @@ body {
 }
 
 .footer-mobile {
-  height: 5rem;   /* Height of the footer */
+  height: 7.5rem;   /* Height of the footer */
 }
 
 html {
@@ -724,12 +724,6 @@ img.white-black {
   filter: brightness(70%);
 }
 
-.mistake-threshold-slider, .mistake-threshold-slider:focus {
-  background-color: inherit !important;
-  border: none;
-  box-shadow: none;
-}
-
 .option-flex {
   height: 2.125rem;
 }
@@ -941,6 +935,22 @@ g.lines line {
   animation: check-mark-keyframes 0.5s 1;
 }
 
+.quiz-check {
+  color: #4cfd3d;
+}
+
+.board-check-mark {
+  stroke: #0eea30;
+  fill: #0eea30;
+}
+
+.hint-square {
+  fill: rgba(189,208,164,0.3);
+  stroke: #cccab2;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+};
+
 .popover-body {
   box-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0, 0.5);
 }
@@ -1057,4 +1067,156 @@ g.lines line {
 
 .admin-log-nav .filter .x:hover {
   display: inherit;
+}
+
+/* Slider CSS
+generated from http://danielstern.ca/range.css/?ref=css-tricks#/
+*/
+:root {
+  --thumb-height: 26px;
+  --thumb-width: 14px;
+  --track-height: 10px;
+  --track-base-color: rgba(17, 54, 115);
+  --track-inactive-color: rgba(17, 54, 115, 0.4);
+  --track-hover-color: rgba(17, 54, 115, 0.55);
+  --track-focus-color: rgba(17, 54, 115, 0.7);
+  --thumb-color: #f8f8f8;
+  --thumb-border-width: 1px;
+  --thumb-border-radius: 6px;
+  --thumb-border-top-color: rgba(255, 255, 255, 0.8);
+  --thumb-border-bottom-color: rgba(0, 0, 0, 0.1);
+  --track-alpha: 0.4;
+  --track-border-width: 1px;
+  --track-border-radius: 4px;
+  --track-border-top-color: rgba(0, 0, 0, 0.2);
+  --track-border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+
+input[type=range] {
+  width: 100%;
+  margin: 10px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: var(--track-inactive-color);
+  border-top: var(--track-border-width) solid var(--track-border-top-color);
+  border-bottom: var(--track-border-width) solid var(--track-border-bottom-color);
+  border-radius: var(--track-border-radius);
+  width: 100%;
+  height: var(--track-height);
+  cursor: pointer;
+}
+input[type=range]::-moz-range-track {
+  background: var(--track-inactive-color);
+  border-top: var(--track-border-width) solid var(--track-border-top-color);
+  border-bottom: var(--track-border-width) solid var(--track-border-bottom-color);
+  border-radius: var(--track-border-radius);
+  width: 100%;
+  height: var(--track-height);
+  cursor: pointer;
+}
+
+input[type=range]:hover::-webkit-slider-runnable-track { background: var(--track-hover-color); }
+input[type=range]:hover::-moz-range-track { background: var(--track-hover-color); }
+input[type=range]:hover::-ms-fill-lower { background: var(--track-hover-color); }
+input[type=range]:hover::-ms-fill-upper { background: var(--track-hover-color); }
+
+input[type=range]:focus::-webkit-slider-runnable-track { background: var(--track-focus-color); }
+input[type=range]:focus::-moz-range-track { background: var(--track-focus-color); }
+input[type=range]:focus::-ms-fill-lower { background: var(--track-focus-color); }
+input[type=range]:focus::-ms-fill-upper { background: var(--track-focus-color); }
+
+input[type=range]::-moz-focus-outer {
+  border: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  width: var(--thumb-width);
+  height: var(--thumb-height);
+  background: var(--thumb-color);
+  border: var(--thumb-border-width) solid transparent;
+  border-top: var(--thumb-border-width) solid var(--thumb-border-top-color);
+  border-bottom: var(--thumb-border-width) solid var(--thumb-border-bottom-color);
+  border-radius: var(--thumb-border-radius);
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: var(--thumb-width);
+  height: var(--thumb-height);
+  background: var(--thumb-color);
+  border: var(--thumb-border-width) solid transparent;
+  border-top: var(--thumb-border-width) solid var(--thumb-border-top-color);
+  border-bottom: var(--thumb-border-width) solid var(--thumb-border-bottom-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  margin-top: calc( var(--track-height) * 0.5 - var(--thumb-height) * 0.5 - var(--track-border-width) * 1);
+  -webkit-appearance: none;
+}
+input[type=range]::-moz-range-thumb {
+  height: calc(var(--thumb-height) + var(--track-border-width));
+}
+
+
+
+/* Edge stuff */
+
+input[type=range].styled-slider::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 11px 0;
+  color: transparent;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+}
+input[type=range].styled-slider::-ms-fill-lower {
+  background: rgba(17, 54, 115, 0.4);
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+input[type=range].styled-slider::-ms-fill-upper {
+  background: rgba(17, 54, 115, 0.4);
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+input[type=range].styled-slider::-ms-thumb {
+  width: 14px;
+  height: 28px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+input[type=range].styled-slider:focus::-ms-fill-lower {
+  background: rgba(17, 54, 115, 0.7);
+}
+input[type=range].styled-slider:focus::-ms-fill-upper {
+  background: rgba(17, 54, 115, 0.7);
+}
+input[type=range].styled-slider:hover::-ms-fill-lower {
+  background: rgba(17, 54, 115, 0.55);
+}
+input[type=range].styled-slider:hover::-ms-fill-upper {
+  background: rgba(17, 54, 115, 0.55);
+}
+
+
+@supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from https://stackoverflow.com/a/32202953/7077589 */
+  input[type=range].styled-slider {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
 }
