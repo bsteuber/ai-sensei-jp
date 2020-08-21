@@ -368,8 +368,7 @@ a, .btn-link {
 }
 
 .mistakes select, .katago-settings select {
-  appearance: none;
-  background-color: rgba(180,180,180,0);
+  background-color: rgba(177, 178, 212, 0.37);
   font-weight: bold;
 }
 
@@ -760,6 +759,11 @@ img.white-black {
   font-size: 2rem !important;
 }
 
+.font-xxx-large {
+  font-size: 2.2rem !important;
+}
+
+
 .error {
   color: white;
 }
@@ -942,6 +946,24 @@ rect.white-errors {
   font: 12px sans-serif;
 }
 
+.quiz-results {
+  border: 4px solid #055b92;
+  background-color: rgba(190, 206, 240, 0.9) !important;
+}
+
+.quiz-results.gold {
+  border-color: gold;
+}
+
+.quiz-results.silver {
+  border-color: silver;
+}
+
+.quiz-results.bronze {
+  border-color: #ca7d31;
+}
+
+
 .edit-translation .icon-edit {
   font-size: 1.0rem;
   vertical-align: super;
@@ -1045,7 +1067,7 @@ g.lines line {
 }
 
 .board-check-mark {
-  stroke: #0eea30;
+  stroke: black;
   fill: #0eea30;
 }
 
@@ -1080,6 +1102,10 @@ g.lines line {
   border: 2px solid #060d82;
 }
 
+.plan-card .card-body {
+  padding: 10px 15px 0px 10px;
+}
+
 .badge-basic, .plan-card-basic {
   background-color: #9bbaf7;
 }
@@ -1108,8 +1134,12 @@ g.lines line {
 }
 
 .markdown th, .markdown td {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.markdown table, .markdown th, .markdown td {
+  border: 1px solid black;
 }
 
 .trade-in-bonus {
