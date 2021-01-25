@@ -13,11 +13,129 @@
 }
 
 :root {
-  --mistake-color: #cf2200;
-  --mistake-color-alt: #af1200;
+  --primary-h: 208;
+  --primary-s: 90%;
+  --primary-l: 30%;
+  --hover-brighten: 1.1;
+  --focus-opacity: 0.4;
+  --primary-hover-l: calc(var(--primary-l) * var(--hover-brighten));
+  --success-h: calc(var(--primary-h) - 90);
+  --success-l: calc(var(--primary-l));
+  --success-hover-l: calc(var(--success-l) * var(--hover-brighten));
+  --warning-h: calc(var(--primary-h) - 160);
+  --warning-l: calc(var(--primary-l) + 18%);
+  --warning-hover-l: calc(var(--warning-l) * var(--hover-brighten));
+  --danger-h: calc(var(--primary-h) + 140);
+  --danger-l: calc(var(--primary-l) + 10%);
+  --danger-hover-l: calc(var(--danger-l) * var(--hover-brighten));
+  --primary: hsl(var(--primary-h),
+                 var(--primary-s),
+                 var(--primary-l));
+  --primary-hover: hsl(var(--primary-h),
+                       var(--primary-s),
+                       var(--primary-hover-l));
+  --primary-focus: hsla(var(--primary-h),
+                        var(--primary-s),
+                        var(--primary-l),
+                        var(--focus-opacity));
+  --primary-dark: hsl(var(--primary-h),
+                      var(--primary-s),
+                      calc(var(--primary-l) * 0.7));
+  --primary-very-dark: hsl(var(--primary-h),
+                           var(--primary-s),
+                           calc(var(--primary-l) * 0.35));
+  --success: hsl(var(--success-h),
+                 var(--primary-s),
+                 var(--success-l));
+  --success-hover: hsl(var(--success-h),
+                       var(--primary-s),
+                       var(--success-hover-l));
+  --success-focus: hsla(var(--success-h),
+                        var(--primary-s),
+                        var(--success-l),
+                        var(--focus-opacity));
+  --warning: hsl(var(--warning-h),
+                 var(--primary-s),
+                 var(--warning-l));
+  --warning-hover: hsl(var(--warning-h),
+                           var(--primary-s),
+                           var(--warning-hover-l));
+  --warning-focus: hsla(var(--warning-h),
+                        var(--primary-s),
+                        var(--warning-l),
+                        var(--focus-opacity));
+  --danger: hsl(var(--danger-h),
+                var(--primary-s),
+                var(--danger-l));
+  --danger-hover: hsl(var(--danger-h),
+                      var(--primary-s),
+                      var(--danger-hover-l));
+  --danger-focus: hsla(var(--danger-h),
+                       var(--primary-s),
+                       var(--danger-l),
+                       var(--focus-opacity));
+  --mistake-color: var(--danger);
+  --mistake-color-alt: var(--danger-hover);
   --good-color: #007000;
   --move-color: #002090;
   --move-color-alt: #001070;
+}
+
+.btn-primary, .btn-primary.disabled {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover) !important;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 .2rem var(--primary-focus);
+}
+
+.btn-success {
+  background-color: var(--success);
+  border-color: var(--success);
+}
+
+.btn-success:hover {
+  background-color: var(--success-hover);
+  border-color: var(--success-hover);
+}
+
+.btn-success:focus, .btn-success.focus {
+  box-shadow: 0 0 0 .2rem var(--success-focus);
+}
+
+.btn-warning {
+  background-color: var(--warning);
+  border-color: var(--warning);
+}
+
+.btn-warning:hover {
+  background-color: var(--warning-hover);
+  border-color: var(--warning-hover);
+}
+
+.btn-warning:focus, .btn-warning.focus {
+  box-shadow: 0 0 0 .2rem var(--warning-focus);
+}
+
+
+.btn-danger {
+  background-color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+  border-color: var(--danger-hover);
+}
+
+.btn-danger:focus, .btn-danger.focus {
+  box-shadow: 0 0 0 .2rem var(--danger-focus);
 }
 
 html,
@@ -225,6 +343,16 @@ a:focus {
   color: gray !important;
 }
 
+.game-list-navs {
+  width: 100%;
+  max-width: 18rem;
+}
+
+.game-list-nav {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
 .modal {
   text-transform: none;
 }
@@ -247,22 +375,12 @@ a, .btn-link {
   cursor: pointer;
 }
 
-.modal a,
-.card a,
-.modal .btn-link,
-#header .modal .btn-link,
-.card .btn-link,
-.link {
-  color: #002f90;
+a, .btn-link, .link {
+  color: var(--primary);
 }
 
-.modal a:active,
-.card a:active,
-.modal .btn-link:active,
-#header .modal .btn-link:active,
-.card .btn-link:active,
-.link:active {
-  color: #001f70;
+a:hover, .btn-link:hover, .link:hover {
+  color: var(--primary-hover);
 }
 
 
@@ -281,7 +399,7 @@ a, .btn-link {
 }
 
 #game-header {
-  background-color: #000c30;
+  background-color: var(--primary-very-dark);
 }
 
 .download-review-button {
@@ -377,12 +495,6 @@ a, .btn-link {
   }
 }
 
-
-
-.controls {
-  height: 3rem;
-}
-
 #board-wrapper {
   overflow-y: auto;
 }
@@ -392,7 +504,25 @@ a, .btn-link {
   user-select: none;
 }
 
-.mistakes select, .katago-settings select {
+.printonly {
+  display: none;
+}
+
+@media print {
+  .board-background {
+    background-image: none !important;
+  }
+
+  .noprint {
+    display: none;
+  }
+
+  .printonly {
+    display: initial;
+  }
+}
+
+.mistakes select, .katago-settings select, .quiz-settings select {
   background-color: rgba(177, 178, 212, 0.37);
   font-weight: bold;
 }
@@ -484,7 +614,7 @@ header {
 }
 
 #header .login-bar-wrapper {
-  background-color: #055b92;
+  background-color: var(--primary);
 }
 
 header .logo {
@@ -507,7 +637,7 @@ header hr {
 }
 
 #header .nav-bar-wrapper {
-  background-color: #012d55;
+  background-color: var(--primary-dark);
   font-size: 1rem;
 }
 
@@ -574,6 +704,20 @@ header hr {
 }
 
 
+#header .login-bar .library-icon {
+  font-size: 1.6rem;
+}
+
+.library-icon.highlight {
+  animation: jump 1.2s infinite;
+}
+
+@keyframes jump {
+     0% { transform: scale(1.1, 0.9); }
+    50% { transform: translate(0, -30%) scale(1, 1); }
+   100% { transform: scale(1.1, 0.9); }
+}
+
 .modal {
   z-index: 2000000001;
 }
@@ -618,6 +762,7 @@ header hr {
   font-weight: normal;
   padding: 0.2rem 0;
 }
+
 .game-row-game div {
   color: black;
 }
@@ -636,6 +781,11 @@ a.game-row-game:hover {
 
 .game-row-game:active {
   background-color: rgba(255,255,255,.075);
+}
+
+.game-row-game.nolink:hover, .game-row-game.nolink:active {
+  cursor: default;
+  background-color: transparent;
 }
 
 .game-row .game-title {
@@ -657,12 +807,95 @@ img.white-black {
   font-size: 3rem !important;
 }
 
+.nav-control {
+  margin: -1rem -0.8rem;
+  flex-basis: 6rem;
+}
+
+.nav-control.nav-close-button {
+  flex-basis: 3.5rem;
+}
+
+.close-button-spacer {
+  flex-basis: 3rem;
+  flex-shrink: 3;
+}
+
+.controls {
+  height: 3rem;
+}
+
 .controls i {
   font-size: 3.6rem !important;
 }
 
-.controls .link:active i::before {
-  margin-top: 4px;
+.library-icon {
+  color: #eedcb0;
+}
+
+.button-row button {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+button i.icon-previous_mistake, button i.icon-next_mistake {
+  font-size: 1.6rem;
+}
+
+.trial-board-icon {
+  font-size: 1.2rem;
+  color: #e89b28;
+}
+
+.quiz-next-game-icon, .quiz-prev-game-icon {
+  font-size: 1.2rem;
+  color: #5d87bd;
+}
+
+.finish-quiz-icon {
+  color: #a3adbb;
+}
+
+.start-quiz-icon, .restart-quiz-icon {
+  color: #398fdb;
+}
+
+.problem-dropdown-menu {
+  padding: 0;
+}
+
+.problem-dropdown-menu, .dropdown-item:focus {
+  color: white;
+  background-color: var(--primary);
+}
+
+.problem-dropdown-menu .dropdown-item {
+  color: white;
+}
+
+.problem-dropdown-menu .dropdown-item:hover {
+  background-color: var(--primary-hover);
+}
+
+.add-library-icon {
+  color: #47f922;
+}
+
+.remove-library-icon {
+  color: var(--mistake-color);
+}
+
+.bulk-add-problems-icon, .delete-game-problems-icon {
+  margin: 0.1rem 0.5rem 0 -0.3rem;
+}
+
+.edit-problem-icon {
+  margin: 0rem 0rem 0rem -0.6rem;
+  color: yellow;
+}
+
+.pass-icon {
+  color: #ec9a72;
 }
 
 .controls .icon-to_end_of_game, .controls .icon-rewind_to_start {
@@ -676,17 +909,23 @@ img.white-black {
 
 .controls .navigate-quiz-mode i {
   font-size: 1.4rem !important;
-  padding-left: 0.2rem;
 }
 
-.navigate-previous-mistake, .navigate-next-mistake {
+.nav-control:not(.disabled) .red-icon {
   color: var(--mistake-color) !important;
 }
 
-.navigate-previous-mistake:active, .navigate-next-mistake:active {
+.nav-control:not(.disabled) .red-icon:hover {
   color: var(--mistake-color-alt) !important;
 }
 
+.controls i.quiz-navigation {
+  font-size: 2.7rem !important;
+}
+
+.controls i.close-icon {
+  font-size: 2.5rem !important;
+}
 
 .controls .disabled {
   color: #626b78 !important;
@@ -804,6 +1043,15 @@ img.white-black {
 
 .credits-amount {
   font-size: 1.25rem;
+}
+
+#content .card.news-box {
+  background-color: #ddc398de;
+}
+
+.news-date {
+  margin-top: -0.8rem;
+  margin-right: -0.8rem;
 }
 
 .news-editor textarea#content {
@@ -1079,6 +1327,37 @@ circle.ownership.abs.neg { fill: black; stroke: white; }
 circle.ownership.diff.black { stroke: black; }
 circle.ownership.diff.white { stroke: white; }
 
+.board-label.white{
+  fill: #000;
+  stroke: #000;
+}
+
+.board-label.black{
+  fill: #FFF;
+  stroke: #FFF;
+}
+
+@media print {
+  .board-label.black{
+    stroke: #000;
+  }
+
+  .board-label.white{
+    stroke: #FFF;
+  }
+}
+
+.board-label.mistake {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+
+.board-label.correct {
+  fill: #208c01;
+  stroke: #208c01;
+}
+
+
 g.lines line {
   stroke: black;
   vector-effect: non-scaling-stroke;
@@ -1176,6 +1455,15 @@ g.lines line {
   border: 1px solid black;
 }
 
+.card .table thead th {
+  border-bottom: none;
+}
+
+.card .table td, .card .table th {
+  border-top: none;
+}
+
+
 .trade-in-bonus {
   color: #0d06f2;
 }
@@ -1245,6 +1533,92 @@ g.lines line {
 .c3-xgrid-line.chart-marketing-event text {
   fill: rgba(157, 51, 10, 0.87);
 }
+
+.problem-stats .times {
+  padding-left: 0.1em;
+}
+
+.problem-stats.detailed .icon {
+  margin-left: -0.3em;
+}
+
+.problem .board-background {
+  transition: fill 0.5s ease 0.5s, stroke 0.5s ease 0.5s;
+}
+
+.problem .drop .board-background {
+  transition: fill 0.5s ease 0s, stroke 0.5s ease 0s;
+}
+
+.level-indicator-buttons {
+  font-size: 2.5rem;
+}
+
+.problem-stats.detailed {
+  font-size: 1.3rem;
+}
+
+:root {
+  --icon-fill-color: #009f2f;
+  --icon-stroke-color: #0c4e01;
+  --icon-rect-color: #103f90;
+  --icon-fill-grey: #c1c0c0;
+}
+
+
+.problem .board-background {
+  fill: var(--icon-fill-color);
+  stroke: var(--icon-stroke-color);
+}
+
+.problem.fresh {
+  --icon-fill-color: #fdfd5d;
+  --icon-stroke-color: #dfdf0b;
+}
+
+.problem.familiar {
+  --icon-fill-color: #ff994f;
+  --icon-stroke-color: #ac4d26;
+}
+
+.problem.memorized {
+  --icon-fill-color: #82f482;
+  --icon-stroke-color: #0c8e01;
+}
+
+.problem.mastered {
+  --icon-fill-color: #9ab2f4;
+  --icon-stroke-color: #021f75;
+}
+
+.problem rect.progress-open {
+  fill: var(--icon-fill-grey);
+}
+
+.problem rect.progress-done {
+  fill: var(--icon-rect-color);
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}
+
+.problem .drop rect.progress-done,
+.problem rect.progress-open {
+  transition: fill 0.5s ease;
+
+}
+
+@keyframes leveldone {
+  0% { fill: var(--icon-rect-color); }
+  100% { fill: var(--icon-fill-grey); }
+}
+
+.problem .level-done rect {
+  fill: var(--icon-rect-color);
+  animation: leveldone 1s ease 1;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
 
 /* Slider CSS
 generated from http://danielstern.ca/range.css/?ref=css-tricks#/
@@ -1395,5 +1769,51 @@ input[type=range].styled-slider:hover::-ms-fill-upper {
   input[type=range].styled-slider {
     margin: 0;
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+.voucher-page .alert {
+  margin-top: 1rem;
+}
+
+
+.voucher, .redeem-buttons, .voucher-page .print-button>div  {
+  width: 45em !important;
+}
+
+@media only print {
+
+  #header, .footer, .alert, .print-button, .card-title
+ {
+    display: none !important;
+  }
+
+  .card, body {
+    background: none !important;
+  }
+
+  .card-body {
+    /* enable printing of the background images */
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+
+    padding: 0;
+    background-image: url('/img/voucher-background-print.jpg') !important;
+  }
+
+  .card {
+    margin: 0 !important;
+    border: 0;
+  }
+
+  .card-body .card {
+    outline: 1px solid #888;
+  }
+
+}
+
+@media only screen {
+  .voucher .redeem-link {
+    display: none;
   }
 }
