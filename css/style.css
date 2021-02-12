@@ -808,17 +808,18 @@ img.white-black {
 }
 
 .nav-control {
-  margin: -1rem -0.8rem;
-  flex-basis: 6rem;
+  display: flex;
+  justify-content: center;
+  flex-basis: 5rem;
 }
 
 .nav-control.nav-close-button {
-  flex-basis: 3.5rem;
+  justify-content: start;
 }
 
 .close-button-spacer {
-  flex-basis: 3rem;
-  flex-shrink: 3;
+  flex-basis: 5rem;
+  flex-shrink: 5;
 }
 
 .controls {
